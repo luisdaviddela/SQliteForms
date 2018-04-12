@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SQLiteDemo.UI_Registro">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="30">
+            <Label Text="Nombre: "/>
+            <Entry Placeholder="Introduce tu nombre" x:Name="Nombre"/>
+            <Label Text="Usuario: "/>
+            <Entry Placeholder="Escribe tu usuario" Keyboard="Email" x:Name="Usuario"/>
+            <Label Text="Contraseña: "/>
+            <Entry Placeholder="Elige una contraseña" IsPassword="True" x:Name="Contrasenia"/>
+            <Button Text="Agregar" Clicked="btn_agregar" BackgroundColor="Azure"></Button>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

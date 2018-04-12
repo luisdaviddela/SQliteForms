@@ -13,7 +13,7 @@ namespace SQLiteDemo
 		{
 			InitializeComponent();
 
-			MainPage = new SQLiteDemo.MainPage();
+			MainPage = new NavigationPage(new UI_Login());
 		}
 
 		protected override void OnStart ()

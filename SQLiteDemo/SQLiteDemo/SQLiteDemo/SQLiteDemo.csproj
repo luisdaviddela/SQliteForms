@@ -19,7 +19,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Vistas\" />
-    <Folder Include="Tablas\" />
+    <EmbeddedResource Update="Vistas\UI_ConsultaRegistro.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vistas\UI_Registro.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vistas\UI_Login.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

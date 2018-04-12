@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SQLiteDemo.UI_Login">
+    <ScrollView>
+        <StackLayout Padding="30" Spacing="30">
+            <Entry Placeholder="Introduce tu usuario" Keyboard="Email" x:Name="usuario"/>
+            <Entry Placeholder="Introduce tu contraseña" IsPassword="True" x:Name="contra"/>
+            <Button Text="Iniciar sesión" BackgroundColor="DarkCyan" TextColor="White" Clicked="btn_login"/>
+            <Button Text="Registrar" Clicked="btn_Registrar"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
