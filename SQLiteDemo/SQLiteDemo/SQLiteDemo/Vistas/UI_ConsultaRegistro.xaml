@@ -4,7 +4,7 @@
              x:Class="SQLiteDemo.UI_ConsultaRegistro">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="ListaUsuarios">
+            <ListView x:Name="ListaUsuarios" ItemSelected="OnSelection">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding Nombre}" Detail="{Binding Usuario}"></TextCell>

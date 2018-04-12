@@ -19,6 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Vistas\UI_Elemento.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Vistas\UI_ConsultaRegistro.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

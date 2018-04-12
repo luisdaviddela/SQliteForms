@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SQLiteDemo.UI_Elemento">
+    <ScrollView>
+        <StackLayout Spacing="10" Padding="10">
+            <Label x:Name="mensaje"/>
+            <Label Text="Nombre: "/>
+            <Entry x:Name="Nombre" Placeholder="Nombre"/>
+            <Label Text="Usuario: "/>
+            <Entry x:Name="Usuario" Placeholder="Usuario"/>
+            <Label Text="Contraseña: "/>
+            <Entry x:Name="Contrasenia" Placeholder="Contraseña"/>
+            <Button Text="Actualizar" Clicked="btn_actualizar" BackgroundColor="LawnGreen"/>
+            <Button Text="Eliminar" Clicked="btn_eliminar" BackgroundColor="Red"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

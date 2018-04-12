@@ -20,6 +20,7 @@ namespace SQLiteDemo
 		{
 			InitializeComponent ();
             _conn = DependencyService.Get<ISQLiteDB>().GetConnection();
+            NavigationPage.SetHasBackButton(this,false);
         }
         protected async override void OnAppearing()
         {
@@ -27,6 +28,21 @@ namespace SQLiteDemo
             _TablaRegistro = new ObservableCollection<T_Registro>(ResulRegistros);
             ListaUsuarios.ItemsSource = _TablaRegistro;
             base.OnAppearing();
+        }
+        void OnSelection(object sender, SelectedItemChangedEventArgs e)
+        {
+            var Obj = (T_Registro)e.SelectedItem;
+            var item = Obj.Id.ToString();
+            int ID = Convert.ToInt32(item);
+            try
+            {
+                Navigation.PushAsync(new UI_Elemento(ID));
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

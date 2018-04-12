@@ -26,16 +26,24 @@ namespace SQLiteDemo
         }
         private void btn_login(object sender, EventArgs e)
         {
-            var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MySQLite.db3");
-            var db = new SQLiteConnection(databasePath);
-            IEnumerable<T_Registro> resultado = SELECT_WHERE(db, usuario.Text, contra.Text);
-            if (resultado.Count()>0)
+            try
             {
-                Navigation.PushModalAsync(new UI_ConsultaRegistro());
+                var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MySQLite.db3");
+                var db = new SQLiteConnection(databasePath);
+                IEnumerable<T_Registro> resultado = SELECT_WHERE(db, usuario.Text, contra.Text);
+                if (resultado.Count() > 0)
+                {
+                    Navigation.PushAsync(new UI_ConsultaRegistro());
+                }
+                else
+                {
+                    DisplayAlert("XamaSharp Blog", "Verifique su usuario/contraseñ", "Ok");
+                }
             }
-            else
+            catch (Exception)
             {
-                DisplayAlert("XamaSharp Blog","Verifique su usuario/contraseñ","Ok");
+
+                throw;
             }
         }
         public static IEnumerable<T_Registro> SELECT_WHERE(SQLiteConnection db, string usuario, string contra)
