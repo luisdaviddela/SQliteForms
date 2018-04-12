@@ -16,7 +16,8 @@ namespace SQLiteDemo
 	{
         public int IdSeleccionado;
         private SQLiteAsyncConnection _conn;
-        IEnumerable<T_Registro> Resultado;
+        IEnumerable<T_Registro> ResultadoDelete;
+        IEnumerable<T_Registro> ResultadoUpdate;
         public UI_Elemento (int id)
 		{
 			InitializeComponent ();
@@ -30,17 +31,23 @@ namespace SQLiteDemo
         }
         private void btn_actualizar(object sender,EventArgs e)
         {
-
+            var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MySQLite.db3");
+            var db = new SQLiteConnection(databasePath);
+            ResultadoUpdate =Update(db,Nombre.Text,Usuario.Text,Contrasenia.Text,IdSeleccionado);
         }
         private void btn_eliminar(object sender, EventArgs e)
         {
             var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MySQLite.db3");
             var db = new SQLiteConnection(databasePath);
-            Resultado = Delete(db,IdSeleccionado);
+            ResultadoDelete = Delete(db,IdSeleccionado);
         }
         public static IEnumerable<T_Registro> Delete(SQLiteConnection db, int id)
         {
             return db.Query<T_Registro>("DELETE FROM T_Registro where Id = ?", id);
+        }
+        public static IEnumerable<T_Registro> Update(SQLiteConnection db, string nombre,string usuario,string contrasenia,int id)
+        {
+            return db.Query<T_Registro>("UPDATE T_Registro SET Nombre = ?, Usuario = ?, Contrasenia = ? where Id = ?",nombre,usuario,contrasenia, id);
         }
     }
 }
